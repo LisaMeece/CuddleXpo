@@ -3,7 +3,7 @@ var Wreck = require('wreck');
 var Fs = require('fs');
 var Promise = require('bluebird');
 
-const key = '107zQ3ozkJuck4KQQnOXRGu4hQGpGVIClXgKNNCot7ds';
+const key = '15leOh-oAsMNNQXgwlbmEyLDcpU9efFYbJGNRMAjcm5s';
 const config = [
   {
     key,
