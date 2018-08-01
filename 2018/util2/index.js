@@ -161,8 +161,16 @@ function processSheet(config) {
   return Promise.all(promises);
 }
 
+function updateAppCache(filename) {
+  const content = Fs.readFileSync(filename, 'utf8');
+  const now = (new Date()).toISOString().slice(0,19).replace('T', ' ');
+  const output = content.replace(/[\n\r]+#.*/, `\n# ${now}`);
+  Fs.writeFileSync(filename, output);
+}
+
 
 // do the work
 processSheet(config)
-  .then((values) => { console.log('Done!'); })
+  .then(() => updateAppCache('../konopas.appcache'))
+  .then(() => { console.log('Done!'); })
   .catch((err) => { console.log('Error:', err); });
